@@ -1,0 +1,55 @@
+.MuiInputRoot {
+  width: 40px;
+  height: 40px;
+  border-radius: 1px;
+  padding: 5px;
+}
+.details {
+  display: flex;
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  padding: 6px 36px 28px;
+  .field {
+    display: flex;
+    align-items: center;
+    margin-top: 22px !important;
+    .fieldName {
+      min-width: 110px;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 300;
+    }
+    .colon {
+      margin-left: 25px;
+      margin-right: 35px;
+    }
+    .fieldValue {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 500;
+    }
+  }
+}
+.textButton {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #0073c7;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.noteBox {
+  width: 100%;
+  min-height: 110px;
+  border-radius: 6px;
+  background: #f4f4f4;
+  resize: none;
+  padding: 30px;
+  box-sizing: border-box;
+  border: none;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #221c35;
+  font-family: 'Work Sans';
+}

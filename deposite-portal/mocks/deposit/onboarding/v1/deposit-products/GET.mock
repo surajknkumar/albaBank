@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+
+{"code":0,"msg":"OK","data":{"productTypes":[{"key":"1_yr_fdr_issue_10","value":"1 Year Fixed Rate Deposit (Issue 10) - AER 4.90"},{"key":"1_yr_fdr_issue_20","value":"1 Year Fixed Rate Deposit (Issue 10) - AER 4.90"},{"key":"1_yr_fdr_issue_30","value":"1 Year Fixed Rate Deposit (Issue 10) - AER 4.90"}]}}

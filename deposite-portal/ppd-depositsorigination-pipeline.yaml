@@ -1,0 +1,65 @@
+---
+trigger:
+  branches:
+    include:
+    - ppd
+  paths:
+    exclude: 
+    - '**/*.yaml'
+
+variables:
+- name: azureServiceConnection
+  value: 'spn-ado-ppd-depositorigination'
+- name: ppd-depositorigination-frontend
+  value: 'ppdalbauksst001'
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    displayName: Build - Deposit Origination frontend - Pre production
+    jobs:
+      - job: 
+        displayName: 'Build - Deposit Origination frontend - Pre production'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 19.x
+            displayName: Install Node.js
+
+          - script: |
+              rm -rf node_modules && npm cache clean --force
+              npm install
+              npm run build:ppd
+            displayName: npm install and build
+
+          - task: CopyFiles@2
+            displayName: Copy files to staging
+            inputs:
+              SourceFolder: build/
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish Artifact: drop"
+            inputs:
+              PathtoPublish: $(Build.ArtifactStagingDirectory)
+
+  - stage: DeployDepositOriginationFrontendPpd
+    displayName: Deploy Deposit Origination Frontend - Pre production
+    jobs:
+    - deployment: DepositOriginationDeploy
+      displayName: Deploy Deposit Origination Frontend - Pre production
+      environment: 'ppd-depositorigination-frontend'
+      strategy: 
+        runOnce:
+            deploy:
+              steps:
+              - task: AzureCLI@2
+                displayName: Deploy Frontend - Pre production
+                inputs:
+                  azureSubscription: $(azureServiceConnection)
+                  scriptType: 'pscore'
+                  scriptLocation: 'inlineScript'
+                  inlineScript: |
+                    az storage blob upload-batch -d '$web' --account-name $(ppd-depositorigination-frontend) -s $(Pipeline.Workspace)/drop --overwrite --auth-mode login

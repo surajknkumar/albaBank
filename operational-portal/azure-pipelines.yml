@@ -1,0 +1,78 @@
+# Node.js React Web App to Linux on Azure
+# Build a Node.js React app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+variables:
+
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: 'a24a0a4e-ac86-4f4f-9b06-549965a9f4f0'
+
+  # Web app name
+  webAppName: 'dev-alba-uks-web-app-001'
+
+  webAppResourceGroupName: 'dev-alba-uks-web-app-002'
+
+  # Environment name
+  environmentName: 'dev-alba-uks-web-app-001'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: ArchiveFiles@2
+      displayName: 'Archive files'
+      inputs:
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    environment: $(environmentName)
+    pool:
+      vmImage: $(vmImageName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureRmWebAppDeployment@4
+            displayName: 'Azure App Service Deploy: dev-alba-uks-web-app-001'
+            inputs:
+              azureSubscription: $(azureSubscription)
+              appType: webAppLinux
+              WebAppName: $(webAppName)
+              deployToSlotOrASE: true
+              resourceGroupName: $(webAppResourceGroupName)
+              packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              RuntimeStack: 'NODE|20-lts'
+              StartupCommand: 'npm run start'
+              ScriptType: 'Inline Script'
+              deployToSlotOrASE: true
+              ResourceGroupName: 'dev-alba-uks-rg-001'
+              enableCustomDeployment: true
+              DeploymentType: 'zipDeploy'
+              RemoveAdditionalFilesFlag: true
+              ExcludeFilesFromAppDataFlag: false
+              InlineScript: |
+                npm install
+                npm run build --if-present

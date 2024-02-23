@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: 'Work Sans' !important;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Work Sans';
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@media (min-width: 1600px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1440px !important;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 992px) {
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 800px !important;
+  }
+}
+
+html.scrolled-down #header {
+  top: -135px;
+}

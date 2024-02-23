@@ -1,0 +1,5 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+
+{"code":0,"message":null,"data":[{"addressLine1":"Flat 1, Regents Plaza Apartments","addressLine2":"6 Greville Road","postTown":"London","county":"Greater London","postCode":"NW6 5HU","summaryLine":"Flat 1, Regents Plaza Apartments, 6 Greville Road, London, Greater London, NW6 5HU","latitude":"51.5363142393","longitude":"-0.1903761834"},{"addressLine1":"Flat 2, Regents Plaza Apartments","addressLine2":"6 Greville Road","postTown":"London","county":"Greater London","postCode":"NW6 5HU","summaryLine":"Flat 2, Regents Plaza Apartments, 6 Greville Road, London, Greater London, NW6 5HU","latitude":"51.5363142393","longitude":"-0.1903761834"},{"addressLine1":"Flat 3, Regents Plaza Apartments","addressLine2":"6 Greville Road","postTown":"London","county":"Greater London","postCode":"NW6 5HU","summaryLine":"Flat 3, Regents Plaza Apartments, 6 Greville Road, London, Greater London, NW6 5HU","latitude":"51.5363142393","longitude":"-0.1903761834"}]}

@@ -1,0 +1,65 @@
+---
+trigger:
+  branches:
+    include:
+    - uat
+  paths:
+    exclude: 
+    - '**/*.yaml'
+
+variables:
+- name: azureServiceConnection
+  value: 'wif-ado-uat-depositorgination'
+- name: uat-depositorigination-frontend
+  value: 'uatalbauksst001'
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    displayName: Build - Deposit Origination frontend - UAT
+    jobs:
+      - job: 
+        displayName: 'Build - Deposit Origination frontend - UAT'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 19.x
+            displayName: Install Node.js
+
+          - script: |
+              rm -rf node_modules && npm cache clean --force
+              npm install
+              npm run build:uat
+            displayName: npm install and build
+
+          - task: CopyFiles@2
+            displayName: Copy files to staging
+            inputs:
+              SourceFolder: build/
+              TargetFolder: $(Build.ArtifactStagingDirectory)
+
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish Artifact: drop"
+            inputs:
+              PathtoPublish: $(Build.ArtifactStagingDirectory)
+
+  - stage: DeployDepositOriginationFrontendUat
+    displayName: Deploy Deposit Origination Frontend - UAT
+    jobs:
+    - deployment: DepositOriginationDeploy
+      displayName: Deploy Deposit Origination Frontend - UAT
+      environment: 'uat-depositorigination-frontend'
+      strategy: 
+        runOnce:
+            deploy:
+              steps:
+              - task: AzureCLI@2
+                displayName: Deploy Frontend - UAT
+                inputs:
+                  azureSubscription: $(azureServiceConnection)
+                  scriptType: 'pscore'
+                  scriptLocation: 'inlineScript'
+                  inlineScript: |
+                    az storage blob upload-batch -d '$web' --account-name $(uat-depositorigination-frontend) -s $(Pipeline.Workspace)/drop --overwrite --auth-mode login

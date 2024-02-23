@@ -1,0 +1,44 @@
+{
+  "name": "operations-portal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:uat": "cp .env.uat .env.local && next build",
+    "build:prod": "cp .env .env.local && next build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/merriweather": "^5.0.8",
+    "@fontsource/work-sans": "^5.0.16",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.17",
+    "@mui/x-date-pickers": "^6.6.0",
+    "@reduxjs/toolkit": "^2.1.0",
+    "axios": "^1.6.0",
+    "next": "14.1.0",
+    "next-auth": "^4.24.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-redux": "^9.1.0",
+    "redux-persist": "^6.0.0",
+    "sweetalert2": "^11.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-window": "^1.8.8",
+    "autoprefixer": "^10.4.16",
+    "dayjs": "^1.11.8",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,20 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 100vh;
+  .sideNav {
+    background-color: #00e2d6;
+  }
+}
+.swalBtn {
+  width: 300px;
+  height: 50px;
+  background-color: #66dfd5;
+  border: 0;
+  border-radius: 5px;
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-size: 18px;
+}

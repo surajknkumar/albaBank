@@ -1,0 +1,605 @@
+.MuiDialog-container {
+  .MuiPaper-root {
+    max-width: 885px;
+    .MuiDialogTitle-root {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #adb8f9;
+      padding: 10px 20px 10px 24px;
+      font-family: 'Merriweather';
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: 700;
+      color: #221c35;
+      .MuiIconButton-root {
+        padding: 2px;
+        background-color: #fff;
+        margin-left: 10px;
+        .MuiSvgIcon-root {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    .MuiDialogContent-root {
+      #scrollable-content {
+        min-height: 400px;
+        max-height: 500px;
+        overflow: scroll;
+        padding: 20px;
+        padding-bottom: 0;
+        background: #f3f3f3;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        li {
+          list-style: none;
+          margin: 16px 0;
+        }
+      }
+    }
+    .MuiDialogActions-root {
+      button {
+        width: 180px;
+        height: 35px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+.MuiStepper-horizontal {
+  &.expired {
+    opacity: 0.4;
+    .MuiStepConnector-line {
+      border-color: #221c35;
+    }
+    .QontoStepIcon-circle {
+      background-color: #221c35;
+    }
+  }
+  .MuiStep-horizontal {
+    width: 20%;
+  }
+  .MuiStep-horizontal:first-child {
+    .MuiStepLabel-label {
+      text-align: left;
+      margin-left: 45%;
+    }
+  }
+  .MuiStep-horizontal:last-child {
+    .MuiStepLabel-label {
+      text-align: right;
+      margin-right: 45%;
+    }
+  }
+  .MuiStepLabel-label {
+    font-family: 'Work Sans' !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 21px !important;
+    color: #221c35;
+    .Mui-active {
+      color: #221c35 !important;
+    }
+  }
+}
+.MuiMenu-paper {
+  transform: translateY(1px) !important;
+  background: #ffffff;
+  border: 1px solid #f4f4f4;
+  border-radius: 0 !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05) !important;
+  .MuiMenu-list {
+    padding: 4px 0 !important;
+  }
+}
+.savings-content {
+  background: #e4f4f3;
+  padding-top: 30px;
+  min-height: 550px;
+  .application-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    background: #211c32;
+    padding: 15px 5px 15px 48px;
+    .MuiTypography-root {
+      font-family: 'Merriweather';
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #ffffff;
+    }
+    .icons {
+      img {
+        margin-right: 30px;
+      }
+    }
+  }
+  ul {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #221c35;
+    padding-left: 18px;
+    li {
+      margin: 16px 0;
+    }
+  }
+  a {
+    color: #0073c7;
+    cursor: pointer;
+    text-decoration: underline !important;
+  }
+  .recaptcha {
+    margin-top: 35px;
+  }
+  .error {
+    label,
+    span,
+    p,
+    a {
+      color: #eb0000 !important;
+    }
+    .msg {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+    .input,
+    .otp-input {
+      border: 1px solid #eb0000;
+      background-color: #fdf7f8;
+    }
+  }
+
+  .nominated-account {
+    direction: flex;
+    flex-direction: column;
+    .label {
+      font-weight: 400 !important;
+    }
+    a:not(.btn) {
+      color: #0073c7;
+    }
+  }
+  .title {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 26px;
+    color: #221c35;
+    margin: 43px -5px 0;
+    #subtitle {
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  .label {
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 18px;
+    line-height: 24px !important;
+    color: #221c35 !important;
+    margin-top: 26px;
+  }
+
+  .privacy-text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #221c35;
+    margin-top: 10px;
+    margin-bottom: 36px;
+    max-width: 1200px;
+  }
+
+  .checkbox {
+    display: flex !important;
+    margin-left: -9px;
+    margin-bottom: 2px;
+    .MuiTypography-root {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #221c35;
+    }
+  }
+
+  .radio {
+    .MuiTypography-root {
+      font-size: 14px;
+      line-height: 24px;
+      color: #221c35;
+    }
+    margin: 5px 40px -9px -9px;
+  }
+
+  .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 0.5em !important;
+  }
+  .css-v7mwc-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 0 !important;
+  }
+  .custom-btn {
+    max-width: 900px;
+    button {
+      width: 242px;
+      height: 52px;
+      font-style: normal;
+      font-weight: 600 !important;
+      font-size: 18px;
+      line-height: 24px !important;
+      text-transform: uppercase !important;
+      .MuiButton-startIcon {
+        margin-left: -55px;
+        margin-right: 35px;
+      }
+      .MuiButton-endIcon {
+        margin-left: 60px;
+        margin-right: -80px;
+      }
+    }
+  }
+
+  .input {
+    margin-top: 11px !important;
+  }
+
+  .input .MuiSelect-select {
+    padding: 0 !important;
+    padding-right: 34px !important;
+  }
+
+  .info {
+    display: inline-flex;
+    background: #adb8f9;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    color: #221c35;
+    padding: 9px;
+    margin-top: 10px;
+    max-width: 1100px;
+    img {
+      margin-right: 7px;
+    }
+  }
+
+  #deposit-details {
+    ul {
+      margin-top: 24px;
+    }
+  }
+
+  #personal-details {
+    .MuiOutlinedInput-notchedOutline {
+      border: none;
+    }
+    #searchPostcode {
+      text-transform: uppercase;
+    }
+    .find-address {
+      display: flex;
+      margin-top: 61px;
+    }
+    .address-btn {
+      button {
+        width: 100%;
+        height: 40px;
+        font-style: normal;
+        font-weight: 500 !important;
+        font-size: 14px;
+        line-height: 24px;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  #summary {
+    margin-top: 40px;
+    & > .MuiGrid-container {
+      margin-bottom: 55px;
+    }
+    .summary-card {
+      background-color: #f8f8f8;
+      border: 1px solid rgba(34, 28, 53, 0.05);
+      padding: 36px 23px 32px;
+      height: 100%;
+      .title {
+        margin: 0;
+      }
+      .subtitle {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+        color: #221c35;
+        margin: 4px 0 -5px;
+      }
+      .MuiGrid-container {
+        margin-top: 4px;
+      }
+      .field-name {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 300;
+        color: #737373;
+      }
+      .field-value {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 500;
+        color: #221c35;
+      }
+    }
+    .label {
+      margin-bottom: 10px;
+    }
+    .info {
+      margin-bottom: 14px;
+    }
+    .description {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.5);
+      max-width: 1150px;
+      margin-bottom: 24px;
+    }
+    .marketing-preference {
+      .checkbox {
+        margin-bottom: 0;
+        margin-right: 44px;
+        .MuiTypography-root {
+          font-weight: 300;
+        }
+      }
+    }
+    .pdf-box {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 27px;
+      margin-right: 55px;
+      cursor: pointer;
+      .MuiTypography-root {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: #0073c7;
+      }
+    }
+    .divider {
+      border: 1px dashed #221c35;
+      margin: 30px 0;
+    }
+  }
+
+  #your-application {
+    padding-bottom: 60px;
+    ul {
+      list-style-type: none;
+      margin-bottom: 0;
+      padding-left: 0;
+      line-height: 26px;
+    }
+  }
+
+  #session-expiry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      line-height: 32px;
+      margin: 58px 0 24px;
+    }
+    .description {
+      max-width: 800px;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 24px;
+      margin: 45px 0 60px;
+      text-align: center;
+    }
+  }
+}
+hr.deposit-details {
+  border-top: 1px dotted;
+}
+.otp-group {
+  display: flex;
+  width: 100%;
+  max-width: 360px;
+  column-gap: 10px;
+  margin-top: 11px;
+}
+.otp-input {
+  width: 55px;
+  height: 55px;
+  border: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #221c35;
+  &:focus-visible {
+    outline: 1px auto #00e2d6;
+  }
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  border: 0;
+  border-radius: 0;
+  background: initial;
+  background-color: #00e2d6;
+  color: #221c35;
+  font-size: 1em;
+  font-family: 'Merriweather';
+  width: 300px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+  box-shadow: 0 0 0 3px hsla(181, 51%, 44%, 0.5);
+}
+div:where(.swal2-icon) {
+  border: 0;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title),
+div:where(.swal2-container) .swal2-html-container {
+  font-family: 'Merriweather';
+}
+div:where(.swal2-container) div:where(.swal2-popup) {
+  border-radius: 0;
+}
+
+element.style {
+  display: grid;
+}
+div:where(.swal2-container).swal2-center > .swal2-popup {
+  padding: 10px 50px 50px;
+  width: 700px;
+}
+
+@media (max-width: 768px) {
+  .savings-content {
+    .custom-btn {
+      button {
+        width: 200px;
+        height: 42px;
+        font-size: 14px;
+        .MuiButton-startIcon {
+          margin-left: -45px;
+          margin-right: 30px;
+          svg {
+            width: 14px;
+          }
+        }
+        .MuiButton-endIcon {
+          margin-left: 45px;
+          margin-right: -70px;
+          svg {
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .savings-content {
+    padding: 11px 20px 0;
+    .application-header {
+      height: 44px;
+      padding: 10px 3px 10px 12px;
+      .MuiTypography-root {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .icons {
+        img {
+          width: 24px;
+          margin-right: 9px;
+        }
+      }
+    }
+    #personal-details {
+      .address-btn {
+        button {
+          font-size: 12px;
+          line-height: 13px !important;
+        }
+      }
+    }
+    .title {
+      font-size: 16px;
+      line-height: 18px;
+      margin: 30px 0px 0;
+      #subtitle {
+        font-size: 12px;
+      }
+    }
+    .radio {
+      margin-right: 30px;
+    }
+    ul,
+    .label,
+    .privacy-text,
+    .info,
+    .checkbox .MuiTypography-root,
+    #summary .summary-card .field-value {
+      font-size: 14px;
+    }
+    #deposit-details ul {
+      margin-bottom: 0;
+    }
+    .custom-btn {
+      button {
+        width: 125px;
+        height: 34px;
+        font-size: 14px;
+        .MuiButton-startIcon {
+          margin-left: -10px;
+          margin-right: 10px;
+          svg {
+            width: 14px;
+          }
+        }
+        .MuiButton-endIcon {
+          margin-left: 10px;
+          margin-right: -35px;
+          svg {
+            height: 14px;
+          }
+        }
+      }
+    }
+    #summary {
+      .pdf-box {
+        margin-right: 0;
+        .MuiTypography-root {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+      .marketing-preference {
+        display: block;
+        .checkbox {
+          margin-bottom: 20px;
+          margin-right: 0;
+        }
+      }
+    }
+    .description {
+      font-size: 14px !important;
+      line-height: 20px !important;
+    }
+  }
+  .MuiMenu-paper {
+    ul {
+      max-width: 320px;
+      li {
+        font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+}
